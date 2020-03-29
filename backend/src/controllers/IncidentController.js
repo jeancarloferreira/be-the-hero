@@ -42,11 +42,11 @@ module.exports = {
             .first()
 
         if(!incident){
-            return res.status(404).json({"error": 'Not Found'});
+            return response.status(404).json({"error": 'Not Found'});
         }
 
         if (incident.ong_id != ong_id){
-            return res.status(401).json({"error": 'Operation not permitted.'})
+            return response.status(401).json({"error": 'Operation not permitted.'})
         }
 
         await connection('incidents').where('id', id).delete()
